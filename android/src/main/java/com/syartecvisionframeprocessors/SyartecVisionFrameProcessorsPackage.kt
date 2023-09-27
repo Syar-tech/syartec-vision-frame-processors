@@ -13,7 +13,7 @@ class SyartecVisionFrameProcessorsPackage : ReactPackage {
         FrameProcessorPluginRegistry.addFrameProcessorPlugin("vision_camera_ocr",
             FrameProcessorPluginRegistry.PluginInitializer { options: Map<String?, Any?>? -> OCRFrameProcessorPlugin() })
         FrameProcessorPluginRegistry.addFrameProcessorPlugin("vision_camera_barcode_scanner2",
-            FrameProcessorPluginRegistry.PluginInitializer { options: Map<String?, Any?>? -> OCRFrameProcessorPlugin() })
+            FrameProcessorPluginRegistry.PluginInitializer { options: Map<String?, Any?>? -> VisionCameraCodeScannerPlugin() })
         return emptyList()
   }
 

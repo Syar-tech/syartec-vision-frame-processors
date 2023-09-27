@@ -36,9 +36,10 @@ Pod::Spec.new do |s|
     s.dependency "RCTRequired"
     s.dependency "RCTTypeSafety"
     s.dependency "ReactCommon/turbomodule/core"
+   end
+  end    
     s.dependency 'GoogleMLKit/BarcodeScanning', '2.4.0'
     s.dependency 'GoogleMLKit/TextRecognition', '2.4.0'
     s.dependency 'GoogleMLKit/MLKitCore', '2.4.0'
-   end
-  end    
+    s.dependency 'VisionCamera'
 end

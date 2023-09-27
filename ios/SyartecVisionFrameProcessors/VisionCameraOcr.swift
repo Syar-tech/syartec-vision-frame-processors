@@ -109,7 +109,7 @@ public class OCRFrameProcessorPlugin: FrameProcessorPlugin {
     }
     
     @objc
-    public static func callback(_ frame: Frame!, withArgs _: [Any]!) -> Any! {
+    public override func callback(_ frame: Frame, withArguments arguments: [AnyHashable : Any]?) -> Any? {
       
       NSLog("%s %s", "---- SCAN OCR ----", "callback")
       return {};
@@ -135,7 +135,7 @@ public class OCRFrameProcessorPlugin: FrameProcessorPlugin {
         return [
             "result": [
                 "text": result.text,
-                "blocks": getBlockArray(result.blocks),
+                "blocks": OCRFrameProcessorPlugin.getBlockArray(result.blocks),
             ]
         ]
     }

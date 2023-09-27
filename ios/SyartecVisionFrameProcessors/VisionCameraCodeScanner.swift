@@ -11,7 +11,7 @@ public class VisionCameraCodeScanner: FrameProcessorPlugin {
     static var barcodeFormatOptionSet: BarcodeFormat = []
     
     @objc
-    public static func callback(_ frame: Frame!, withArgs args: [Any]!) -> Any! {
+    public override func callback(_ frame: Frame, withArguments arguments: [AnyHashable : Any]?) -> Any? {
         let image = VisionImage(buffer: frame.buffer)
         image.orientation = .up
         

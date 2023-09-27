@@ -22,7 +22,7 @@ public class VisionCameraCodeScanner: FrameProcessorPlugin {
             var barcodes: [Barcode] = []
             barcodes.append(contentsOf: try VisionCameraCodeScanner.barcodeScanner!.results(in: image))
             
-            if let options = arguments![1] as? [String: Any] {
+            if let options = arguments!["options"] as? [String: Any] {
                 let checkInverted = options["checkInverted"] as? Bool ?? false
                 if (checkInverted) {
                     guard let buffer = CMSampleBufferGetImageBuffer(frame.buffer) else {
@@ -50,7 +50,8 @@ public class VisionCameraCodeScanner: FrameProcessorPlugin {
     }
     
     static func createScanner(_ args: [AnyHashable : Any]!) throws {
-        guard let rawFormats = args[0] as? [Int] else {
+        
+        guard let rawFormats = args!["types"] as? [Int] else {
             throw BarcodeError.noBarcodeFormatProvided
         }
         var formatOptionSet: BarcodeFormat = []

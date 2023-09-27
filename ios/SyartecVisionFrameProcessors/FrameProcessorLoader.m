@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <VisionCamera/FrameProcessorPlugin.h>
 #import <VisionCamera/FrameProcessorPluginRegistry.h>
-#import "SyartecVisionFrameProcessor-Swift.h"
+#import "syartec_vision_frame_processors-Swift.h"
 
 @interface FrameProcessorLoader : NSObject
 @end

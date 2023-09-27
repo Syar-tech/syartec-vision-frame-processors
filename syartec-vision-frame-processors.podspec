@@ -32,8 +32,7 @@ Pod::Spec.new do |s|
         "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
         "OTHER_CPLUSPLUSFLAGS" => "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
         "CLANG_CXX_LANGUAGE_STANDARD" => "c++17",
-        "DEFINES_MODULES"  => "YES", 
-        "PRODUCT_NAME" => "SyartecVisionFrameProcessors" 
+        "DEFINES_MODULE"  => "YES",
     }
     s.dependency "React-Codegen"
     s.dependency "RCT-Folly"

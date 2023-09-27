@@ -18,27 +18,27 @@ public class VisionCameraCodeScanner: FrameProcessorPlugin {
         var barCodeAttributes: [Any] = []
         
         do {
-            try self.createScanner(args)
+            try VisionCameraCodeScanner.createScanner(arguments!)
             var barcodes: [Barcode] = []
-            barcodes.append(contentsOf: try barcodeScanner!.results(in: image))
+            barcodes.append(contentsOf: try VisionCameraCodeScanner.barcodeScanner!.results(in: image))
             
-            if let options = args[1] as? [String: Any] {
+            if let options = arguments![1] as? [String: Any] {
                 let checkInverted = options["checkInverted"] as? Bool ?? false
                 if (checkInverted) {
                     guard let buffer = CMSampleBufferGetImageBuffer(frame.buffer) else {
                         return nil
                     }
                     let ciImage = CIImage(cvPixelBuffer: buffer)
-                    guard let invertedImage = invert(src: ciImage) else {
+                    guard let invertedImage = VisionCameraCodeScanner.invert(src: ciImage) else {
                         return nil
                     }
-                    barcodes.append(contentsOf: try barcodeScanner!.results(in: VisionImage.init(image: invertedImage)))
+                    barcodes.append(contentsOf: try VisionCameraCodeScanner.barcodeScanner!.results(in: VisionImage.init(image: invertedImage)))
                 }
             }
             
             if (!barcodes.isEmpty){
                 for barcode in barcodes {
-                    barCodeAttributes.append(self.convertBarcode(barcode: barcode))
+                    barCodeAttributes.append(VisionCameraCodeScanner.convertBarcode(barcode: barcode))
                 }
             }
             
@@ -49,7 +49,7 @@ public class VisionCameraCodeScanner: FrameProcessorPlugin {
         return barCodeAttributes
     }
     
-    static func createScanner(_ args: [Any]!) throws {
+    static func createScanner(_ args: [AnyHashable : Any]!) throws {
         guard let rawFormats = args[0] as? [Int] else {
             throw BarcodeError.noBarcodeFormatProvided
         }

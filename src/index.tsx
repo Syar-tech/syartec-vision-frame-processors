@@ -34,7 +34,6 @@ const SyartecVisionFrameProcessors = NativeModules.SyartecVisionFrameProcessors
         'worklet'
         // @ts-ignore
         if (ocrPlugin == null) throw new Error('Failed to load Frame Processor Plugin "vision_camera_ocr"!');
-        console.log("OCR" , ocrPlugin?.call)
         return ocrPlugin?.call(frame, {});
     }
     /*------------------------

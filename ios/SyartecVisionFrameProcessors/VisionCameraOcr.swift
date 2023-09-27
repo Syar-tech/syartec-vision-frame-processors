@@ -111,8 +111,6 @@ public class OCRFrameProcessorPlugin: FrameProcessorPlugin {
     @objc
     public override func callback(_ frame: Frame, withArguments arguments: [AnyHashable : Any]?) -> Any? {
       
-      NSLog("%s %s", "---- SCAN OCR ----", "callback")
-      return {};
         guard (CMSampleBufferGetImageBuffer(frame.buffer) != nil) else {
           print("Failed to get image buffer from sample buffer.")
           return nil

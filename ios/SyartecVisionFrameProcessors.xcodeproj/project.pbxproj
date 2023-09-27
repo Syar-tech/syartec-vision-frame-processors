@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07B5800E2AC3191600D9FDEE /* BarcodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B580092AC3191600D9FDEE /* BarcodeError.swift */; };
-		07B5800F2AC3191600D9FDEE /* BarcodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5800A2AC3191600D9FDEE /* BarcodeConverter.swift */; };
-		07B580102AC3191600D9FDEE /* FrameProcessorLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5800B2AC3191600D9FDEE /* FrameProcessorLoader.m */; };
-		07B580112AC3191600D9FDEE /* VisionCameraCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5800C2AC3191600D9FDEE /* VisionCameraCodeScanner.swift */; };
-		07B580122AC3191600D9FDEE /* VisionCameraOcr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5800D2AC3191600D9FDEE /* VisionCameraOcr.swift */; };
-		F4FF95D7245B92E800C19C63 /* SyartecVisionFrameProcessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* SyartecVisionFrameProcessors.swift */; };
+		070D7F322AC423AF001C585B /* FrameProcessorLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 070D7F2D2AC423AF001C585B /* FrameProcessorLoader.m */; };
+		070D7F332AC423AF001C585B /* VisionCameraCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D7F2E2AC423AF001C585B /* VisionCameraCodeScanner.swift */; };
+		070D7F342AC423AF001C585B /* BarcodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D7F2F2AC423AF001C585B /* BarcodeConverter.swift */; };
+		070D7F352AC423AF001C585B /* VisionCameraOcr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D7F302AC423AF001C585B /* VisionCameraOcr.swift */; };
+		070D7F362AC423AF001C585B /* BarcodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D7F312AC423AF001C585B /* BarcodeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,15 +27,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		07B580092AC3191600D9FDEE /* BarcodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeError.swift; sourceTree = "<group>"; };
-		07B5800A2AC3191600D9FDEE /* BarcodeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeConverter.swift; sourceTree = "<group>"; };
-		07B5800B2AC3191600D9FDEE /* FrameProcessorLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameProcessorLoader.m; sourceTree = "<group>"; };
-		07B5800C2AC3191600D9FDEE /* VisionCameraCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionCameraCodeScanner.swift; sourceTree = "<group>"; };
-		07B5800D2AC3191600D9FDEE /* VisionCameraOcr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionCameraOcr.swift; sourceTree = "<group>"; };
+		070D7F2D2AC423AF001C585B /* FrameProcessorLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrameProcessorLoader.m; path = SyartecVisionFrameProcessors/FrameProcessorLoader.m; sourceTree = "<group>"; };
+		070D7F2E2AC423AF001C585B /* VisionCameraCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisionCameraCodeScanner.swift; path = SyartecVisionFrameProcessors/VisionCameraCodeScanner.swift; sourceTree = "<group>"; };
+		070D7F2F2AC423AF001C585B /* BarcodeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarcodeConverter.swift; path = SyartecVisionFrameProcessors/BarcodeConverter.swift; sourceTree = "<group>"; };
+		070D7F302AC423AF001C585B /* VisionCameraOcr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisionCameraOcr.swift; path = SyartecVisionFrameProcessors/VisionCameraOcr.swift; sourceTree = "<group>"; };
+		070D7F312AC423AF001C585B /* BarcodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarcodeError.swift; path = SyartecVisionFrameProcessors/BarcodeError.swift; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libSyartecVisionFrameProcessors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSyartecVisionFrameProcessors.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5891CC2AC0600A0062D /* SyartecVisionFrameProcessors.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyartecVisionFrameProcessors.mm; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* SyartecVisionFrameProcessors-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SyartecVisionFrameProcessors-Bridging-Header.h"; sourceTree = "<group>"; };
-		F4FF95D6245B92E800C19C63 /* SyartecVisionFrameProcessors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyartecVisionFrameProcessors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +58,6 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				F4FF95D6245B92E800C19C63 /* SyartecVisionFrameProcessors.swift */,
-				B3E7B5891CC2AC0600A0062D /* SyartecVisionFrameProcessors.mm */,
 				F4FF95D5245B92E700C19C63 /* SyartecVisionFrameProcessors-Bridging-Header.h */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				88ECE493028A1418EB95F9F3 /* SyartecVisionFrameProcessors */,
@@ -72,11 +67,11 @@
 		88ECE493028A1418EB95F9F3 /* SyartecVisionFrameProcessors */ = {
 			isa = PBXGroup;
 			children = (
-				07B5800A2AC3191600D9FDEE /* BarcodeConverter.swift */,
-				07B580092AC3191600D9FDEE /* BarcodeError.swift */,
-				07B5800B2AC3191600D9FDEE /* FrameProcessorLoader.m */,
-				07B5800C2AC3191600D9FDEE /* VisionCameraCodeScanner.swift */,
-				07B5800D2AC3191600D9FDEE /* VisionCameraOcr.swift */,
+				070D7F2F2AC423AF001C585B /* BarcodeConverter.swift */,
+				070D7F312AC423AF001C585B /* BarcodeError.swift */,
+				070D7F2D2AC423AF001C585B /* FrameProcessorLoader.m */,
+				070D7F2E2AC423AF001C585B /* VisionCameraCodeScanner.swift */,
+				070D7F302AC423AF001C585B /* VisionCameraOcr.swift */,
 			);
 			name = SyartecVisionFrameProcessors;
 			sourceTree = "<group>";
@@ -138,12 +133,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4FF95D7245B92E800C19C63 /* SyartecVisionFrameProcessors.swift in Sources */,
-				07B580122AC3191600D9FDEE /* VisionCameraOcr.swift in Sources */,
-				07B5800F2AC3191600D9FDEE /* BarcodeConverter.swift in Sources */,
-				07B580112AC3191600D9FDEE /* VisionCameraCodeScanner.swift in Sources */,
-				07B5800E2AC3191600D9FDEE /* BarcodeError.swift in Sources */,
-				07B580102AC3191600D9FDEE /* FrameProcessorLoader.m in Sources */,
+				070D7F342AC423AF001C585B /* BarcodeConverter.swift in Sources */,
+				070D7F352AC423AF001C585B /* VisionCameraOcr.swift in Sources */,
+				070D7F362AC423AF001C585B /* BarcodeError.swift in Sources */,
+				070D7F322AC423AF001C585B /* FrameProcessorLoader.m in Sources */,
+				070D7F332AC423AF001C585B /* VisionCameraCodeScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
     s.dependency "ReactCommon/turbomodule/core"
     s.dependency 'GoogleMLKit/BarcodeScanning', '2.4.0'
     s.dependency 'GoogleMLKit/TextRecognition', '2.4.0'
+    s.dependency 'GoogleMLKit/MLKitCore', '2.4.0'
    end
   end    
 end

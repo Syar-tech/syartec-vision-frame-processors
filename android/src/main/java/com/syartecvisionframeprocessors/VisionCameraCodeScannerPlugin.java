@@ -29,7 +29,7 @@ import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.common.internal.ImageConvertUtils;
-import com.mrousavy.camera.parsers.Orientation;
+import com.mrousavy.camera.types.Orientation;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -254,6 +254,6 @@ public class VisionCameraCodeScannerPlugin extends FrameProcessorPlugin {
 	}
 
   VisionCameraCodeScannerPlugin() {
-    super();
+    super(null);
   }
 }

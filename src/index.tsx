@@ -20,8 +20,8 @@ const SyartecVisionFrameProcessors = NativeModules.SyartecVisionFrameProcessors
 
 
 
-    const ocrPlugin  = VisionCameraProxy.getFrameProcessorPlugin('vision_camera_ocr');
-    const barcodePlugin = VisionCameraProxy.getFrameProcessorPlugin('vision_camera_barcode_scanner2');
+    const ocrPlugin  = VisionCameraProxy.initFrameProcessorPlugin('vision_camera_ocr');
+    const barcodePlugin = VisionCameraProxy.initFrameProcessorPlugin('vision_camera_barcode_scanner2');
     
     /*------------------------
     *

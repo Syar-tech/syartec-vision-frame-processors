@@ -10,9 +10,12 @@ import com.mrousavy.camera.frameprocessor.FrameProcessorPluginRegistry;
 
 class SyartecVisionFrameProcessorsPackage : ReactPackage {
   override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-        FrameProcessorPluginRegistry.addFrameProcessorPlugin("vision_camera_ocr",
+        if(FrameProcessorPluginRegistry.getPlugin("vision_camera_ocr",null) == null) 
+          FrameProcessorPluginRegistry.addFrameProcessorPlugin("vision_camera_ocr",
             FrameProcessorPluginRegistry.PluginInitializer { options: Map<String?, Any?>? -> OCRFrameProcessorPlugin() })
-        FrameProcessorPluginRegistry.addFrameProcessorPlugin("vision_camera_barcode_scanner2",
+
+        if(FrameProcessorPluginRegistry.getPlugin("vision_camera_barcode_scanner2",null) == null) 
+          FrameProcessorPluginRegistry.addFrameProcessorPlugin("vision_camera_barcode_scanner2",
             FrameProcessorPluginRegistry.PluginInitializer { options: Map<String?, Any?>? -> VisionCameraCodeScannerPlugin() })
         return emptyList()
   }

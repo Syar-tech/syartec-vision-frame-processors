@@ -10,18 +10,6 @@
 #import <VisionCamera/FrameProcessorPluginRegistry.h>
 #import "syartec_vision_frame_processors-Swift.h"
 
-@interface FrameProcessorLoader : NSObject
-@end
-@implementation FrameProcessorLoader
 
-+ (void) load {
-  [FrameProcessorPluginRegistry addFrameProcessorPlugin:@"vision_camera_barcode_scanner2"
-                                        withInitializer:^FrameProcessorPlugin*(NSDictionary* options) {
-    return [[VisionCameraCodeScanner alloc] init];
-  }];
-  [FrameProcessorPluginRegistry addFrameProcessorPlugin:@"vision_camera_ocr"
-                                        withInitializer:^FrameProcessorPlugin*(NSDictionary* options) {
-    return [[OCRFrameProcessorPlugin alloc] init];
-  }];
-}
-@end
+VISION_EXPORT_SWIFT_FRAME_PROCESSOR(VisionCameraCodeScanner, vision_camera_barcode_scanner2)
+VISION_EXPORT_SWIFT_FRAME_PROCESSOR(OCRFrameProcessorPlugin, vision_camera_ocr)

@@ -1,7 +1,7 @@
 {
   "name": "syartec-vision-frame-processors",
-  "version": "0.1.0",
-  "description": "vision camera processoirs",
+  "version": "0.2.0",
+  "description": "vision camera processors",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",

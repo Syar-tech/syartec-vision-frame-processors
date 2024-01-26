@@ -18,9 +18,11 @@ import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.mrousavy.camera.frameprocessor.Frame
 import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin
+import com.mrousavy.camera.frameprocessor.FrameProcessorPluginRegistry.PluginInitializer
+import com.mrousavy.camera.frameprocessor.VisionCameraProxy
 import com.mrousavy.camera.types.Orientation
 
-class OCRFrameProcessorPlugin: FrameProcessorPlugin(null) {
+class OCRFrameProcessorPlugin(proxy: VisionCameraProxy? = null, options: Map<String, Any>? = null): FrameProcessorPlugin(), PluginInitializer {
 
     private fun getBlockArray(blocks: MutableList<Text.TextBlock>): ArrayList<Any> {
         val blockArray = ArrayList<Any>()
@@ -111,8 +113,8 @@ class OCRFrameProcessorPlugin: FrameProcessorPlugin(null) {
         val mediaImage: Image? = frame.getImage()
 
         if (mediaImage != null) {
-            val image = InputImage.fromMediaImage(mediaImage, Orientation.fromUnionValue(frame.orientation)!!.toDegrees())
-            Log.w("LOG_FRAME", frame.pixelFormat)
+            val image = InputImage.fromMediaImage(mediaImage, frame.orientation!!.toDegrees())
+            Log.w("LOG_FRAME", ""+frame.pixelFormat)
             val task: Task<Text> = recognizer.process(image)
             try {
                 val text: Text = Tasks.await<Text>(task)
@@ -127,6 +129,13 @@ class OCRFrameProcessorPlugin: FrameProcessorPlugin(null) {
         data.put("result", result)
         return data
     }
+
+  override fun initializePlugin(
+    proxy: VisionCameraProxy,
+    options: MutableMap<String, Any>?
+  ): FrameProcessorPlugin {
+    return OCRFrameProcessorPlugin(proxy, options)
+  }
 
 
 }

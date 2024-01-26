@@ -29,6 +29,8 @@ import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.common.internal.ImageConvertUtils;
+import com.mrousavy.camera.frameprocessor.FrameProcessorPluginRegistry;
+import com.mrousavy.camera.frameprocessor.VisionCameraProxy;
 import com.mrousavy.camera.types.Orientation;
 
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class VisionCameraCodeScannerPlugin extends FrameProcessorPlugin {
+public class VisionCameraCodeScannerPlugin extends FrameProcessorPlugin implements FrameProcessorPluginRegistry.PluginInitializer {
   private BarcodeScanner barcodeScanner = null;
   private int barcodeScannerFormatsBitmap = -1;
 
@@ -72,7 +74,7 @@ public class VisionCameraCodeScannerPlugin extends FrameProcessorPlugin {
     Image mediaImage = frame.getImage();
     if (mediaImage != null) {
       ArrayList<Task<List<Barcode>>> tasks = new ArrayList<Task<List<Barcode>>>();
-      InputImage image = InputImage.fromMediaImage(mediaImage, Orientation.Companion.fromUnionValue(frame.getOrientation()).toDegrees());
+      InputImage image = InputImage.fromMediaImage(mediaImage, frame.getOrientation().toDegrees());
 
       if (params.get("options") instanceof Map) {
         Map scannerOptions = (Map) params.get("options");
@@ -225,17 +227,17 @@ public class VisionCameraCodeScannerPlugin extends FrameProcessorPlugin {
 
   // Bitmap Inversion https://gist.github.com/moneytoo/87e3772c821cb1e86415
   private Bitmap invert(Bitmap src)
-	{ 
+	{
 		int height = src.getHeight();
-		int width = src.getWidth();    
+		int width = src.getWidth();
 
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint();
-		
+
 		ColorMatrix matrixGrayscale = new ColorMatrix();
 		matrixGrayscale.setSaturation(0);
-		
+
 		ColorMatrix matrixInvert = new ColorMatrix();
 		matrixInvert.set(new float[]
 		{
@@ -245,15 +247,24 @@ public class VisionCameraCodeScannerPlugin extends FrameProcessorPlugin {
 			0.0f, 0.0f, 0.0f, 1.0f, 0.0f
 		});
 		matrixInvert.preConcat(matrixGrayscale);
-		
+
 		ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrixInvert);
 		paint.setColorFilter(filter);
-		
+
 		canvas.drawBitmap(src, 0, 0, paint);
 		return bitmap;
 	}
 
   VisionCameraCodeScannerPlugin() {
-    super(null);
+    super();
+  }
+
+  VisionCameraCodeScannerPlugin(VisionCameraProxy proxy, @Nullable Map<String, Object> options) {
+    super();
+  }
+
+  @Override
+  public FrameProcessorPlugin initializePlugin(@NonNull VisionCameraProxy proxy, @androidx.annotation.Nullable Map<String, Object> options) {
+    return new VisionCameraCodeScannerPlugin(proxy, options);
   }
 }
